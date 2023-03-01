@@ -9,13 +9,13 @@ import (
 
 func main() {
 	// Parse the command-line arguments
-	contentPtr := flag.String("content", "", "the content to generate QR code for")
+	contentPtr := flag.String("c", "", "the content to generate QR code for")
 	filenamePtr := flag.String("filename", "qrcode.png", "the name of the output file")
 	flag.Parse()
 
 	// Check if the content is provided
 	if *contentPtr == "" {
-		log.Fatal("Please provide a content using the -content flag")
+		log.Fatal("Please provide a content using the -c flag")
 	}
 
 	err := qrcode.WriteFile(*contentPtr, qrcode.Highest, 512, *filenamePtr)
